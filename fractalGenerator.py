@@ -90,7 +90,7 @@ so please do. AHHHHHHHHHHHHHHHHHHHHH
 """
 
 
-color_mode = 2
+color_mode = 1
 """
 color_mode is very important!!!! It changes the way the fractal is colored.
 This first setting (set it equal to 1) makes it look all pink and blue and
