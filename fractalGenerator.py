@@ -6,7 +6,7 @@ pygame.init()
 """
 Hi! I've explained what every part does... so if you are interested you can read through!
 However if you just want to create cool pictures of fractals, I recommend messing around
-with the "c" value below (which is right before colorList lol), increasing the width a
+with the "c" value below (which is right before colorList), increasing the width a
 little bit (OR A LOT MUHAHAHAHA), and also changing the values below to something like:
 
 leastX = -2
@@ -35,7 +35,7 @@ Make something better than what wikipedia has! Show them who's boss!
 NOTE:
 There is a bug! OH NOOOO. Okay so sometimes, depending on the width you set, there will
 appear these horizontal black lines which are really annoying. :/
-To fix this, increase the width by like 20.
+To fix this, increase the width by around 20 or so.
 
 I know what's causing the problem, but I haven't been able to fix it. :(
 
@@ -46,10 +46,6 @@ Feel free to mess with all of this...
 """
 
 
-leastX = -1.6
-maxX = 1.6
-leastY = -1
-maxY = 1
 """
 These are the dimensions of the plane that will be drawn.
 You might want to change these dimensions to fit the fractal drawing.
@@ -57,56 +53,61 @@ For example the Mandelbrot fractal fits nicely when the X range is
 (-2,1) and the Y range is (-1,1). This also allows you to zoom in
 if you can figure out the dimensions that you want to zoom in. To
 help with this, I have the function "drawAxes". I understand this
-isn't ideal, but I'm not a great programmer, so I'll try to think
+isn't ideal, but I'm not a great programmer yet, so I'll try to think
 of a way to make it easier or maybe I'll just google it. :)
 """
+leastX = -1.6
+maxX = 1.6
+leastY = -1
+maxY = 1
 
 
-
-width = 500
 """
 This determines the width of the fractal image generated. The height
 is calculated using the dimensions given above. Again... this isn't
-ideal but I'm new! Sorryyy.
+ideal but I am still learning Python!
 """
+width = 500
 
-detail = 1
 """
 I wouldn't mess with detail too much. I just used it when I was writing the
 program to generate quick, but less detailed fractals. If "detail"
-is set to 2, the program will only calculate and color every other
+is set to 2, the program will only calculate every other
 pixel, which obviously doesn't look as nice, but it's convient for
 quick checks to make sure everyrthing it working.
 """
+detail = 1
 
-accuracy = 1000
 """
 Accuracy is just how many times the program checks for the infinite
 series to diverge. 1000 seems to be fine, I'm sure a lower number
 like 500 or even 250 would be fine too... I like 1000.
 If you know how fractals like these are created work then you know
 about the series stuff and you can probably make this program better
-so please do. AHHHHHHHHHHHHHHHHHHHHH
+so please do. 
 """
+accuracy = 1000
 
-
-color_mode = 1
 """
 color_mode is very important!!!! It changes the way the fractal is colored.
 This first setting (set it equal to 1) makes it look all pink and blue and
-swag. The second one is more rainbow colored.
+swag. The second one is more rainbow colored according to what is in colorList.
 THIS VALUE ONLY TAKES VALUES OF 1 OR 2!!
 """
+color_mode = 1
 
 
-c = complex(-0.8, .156)
 """
 Julia set fractals and their shapes are determined by this constant
 number, which is sometimes a complex number. Change this number, and
 you can change the whole fractal!
 """
+c = complex(-0.8, .156)
 
 
+"""
+This determines how the fractal is colored when "color_mode" is set to 2.
+"""
 colorList = [(255,0,0),
              (255,106,0),
              (255,216,0),
@@ -122,9 +123,7 @@ colorList = [(255,0,0),
              (255,0,220),
              (255,0,110)]
 
-"""
-This determines how the fractal is colored when "color_mode" is set to 2.
-"""
+
 
 
 maxY = float(maxY)
@@ -192,7 +191,7 @@ So unfortunately there is a limited accuracy to the fractals being generated,
 because there's a limited number of pixels. This list creates the exact imaginary
 numbers and coordinates we will be using for whatever dimensions you want.
 But really it's just the range() function but for decimals...
-definitely a better way to do this... but I don't program often.
+definitely a better way to do this...
 """
 
 ##################################################################
@@ -202,7 +201,7 @@ list1 = frange(leastX,maxX,incr)
 list2 = frange(leastY,maxY,incr)
 """
 These are lists the points that will be placed on the screen.
-It's like the resolution... maybe idk.
+It's like the resolution.
 """
 
 for x in list1:
@@ -269,7 +268,7 @@ for x in list1:
                 This is the equation I use when I color fractals in color_mode = 1. I
                 was messing around with it one day and I tried the log function, it
                 looked amazing.
-                Feel free to change it! :) Smiley faces look really cool it IDLE.
+                Feel free to change it! :) Smiley faces look really cool in IDLE.
                 """
                 if xp < width and yp < height and yp > 0 and xp > 0:
                     arr[xp,yp] = (yo,70,100)
@@ -288,7 +287,7 @@ for x in list1:
 
 pygame.image.save(arr.make_surface(), 'juliaSet.png')
 """
-Saves the fractal generated.
+Saves the generated fractal
 """
 
 print "Done!"
